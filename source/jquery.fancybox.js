@@ -1156,7 +1156,11 @@
 	F.helpers.title = {
 		beforeShow: function (opts) {
 			var title, text = F.current.title || F.current.element.title || '';
-
+            
+            if (text[0] == "#" && $(text).length > 0) {
+                text = $(text).html();
+            }
+            
 			if (text) {
 				title = $('<div class="fancybox-title fancybox-title-' + opts.type + '-wrap">' + text + '</div>').appendTo('body');
 
